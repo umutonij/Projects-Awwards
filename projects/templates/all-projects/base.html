@@ -1,4 +1,4 @@
-% load bootstrap3 %}
+{% load bootstrap3 %}
 {% load static%}
 <!DOCTYPE html>
 <html>
@@ -6,14 +6,14 @@
   <meta charset="utf-8">
 
   {% if name %}
-  <title>PROJECTS App - {{name}}</title>
+  <title>Instagram App - {{name}}</title>
   {% else %}
-    <title> PROJECTS App </title>
+    <title> Instagram App </title>
   {% endif %}
 
   {% block styles %}
-    
-    <link rel="stylesheet" href="{% static 'css/baseprojects.css' %}">
+    {% bootstrap_css %}
+   
   {% endblock %}
 
 </head>
@@ -28,7 +28,7 @@
 
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   
+     {% bootstrap_javascript %}
     {% endblock %}
 </body>
 </html>
