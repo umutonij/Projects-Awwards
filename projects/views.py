@@ -7,13 +7,9 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='/accounts/login/')
 def projects_today(request):
     all_images= Project.objects.all()
-    # images=Project.objects.all()
     print(all_images)
-    # if form.is_valid():
-    #     HttpResponseRedirect('projects_today')
-    # else:
-    #     form = NewProjectForm()
-    return render(request, 'all-projects/today-project.html', { "all_images":all_images})
+    
+    return render(request, 'all-projects/today-project.html', { "images":all_images})
 
 def search_results(request):
 
