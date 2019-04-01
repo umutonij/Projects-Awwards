@@ -5,11 +5,12 @@ from django.contrib.auth.models import User
 class Project(models.Model):
     title = models.CharField(max_length = 30,null = True)
     description = models.TextField(null = True)
+    link = models.CharField(max_length = 70,null = True)
     user = models.ForeignKey(User, on_delete = models.CASCADE, null=True)
     image = models.ImageField(upload_to='images/', blank=True)
 
     def __str__(self):
-        return self.image
+        return self.title
 
     def delete_image(self):
         self.delete()
