@@ -4,12 +4,14 @@ from .models import Project
 from .forms import NewProjectForm
 
 def projects_today(request):
-    all_projects= Project.objectS.all()
+    all_images= Project.all_images()
+    # images=Project.objects.all()
+    print(all_images)
     if form.is_valid():
         HttpResponseRedirect('projects_today')
     else:
         form = NewProjectForm()
-    return render(request, 'all-projects/projects.html', {"ProjectForm":form, "projects":all_projects})
+    return render(request, 'all-projects/projects.html', {"ProjectForm":form, "images":all_images})
 
 def search_results(request):
 

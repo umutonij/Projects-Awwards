@@ -18,18 +18,11 @@ class Project(models.Model):
     	self.save()
 
     @classmethod
-    def all_projects(cls):
-        project = cls.objects.all()
-        return projects 
+    def all_images(cls):
+        image = cls.objects.all()
+        return images 
 
-    @classmethod
-    def get_project(cls, id):
-        project = cls.objects.get(id=id)
-        return project
     
-    def __str__(self):
-    	return self.user.username
-
     
     @classmethod
     def search_by_title(cls,search_term):
