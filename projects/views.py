@@ -2,16 +2,18 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .models import Project
 from .forms import NewProjectForm
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='/accounts/login/')
 def projects_today(request):
-    all_images= Project.all_images()
+    all_images= Project.objects.all()
     # images=Project.objects.all()
     print(all_images)
-    if form.is_valid():
-        HttpResponseRedirect('projects_today')
-    else:
-        form = NewProjectForm()
-    return render(request, 'all-projects/projects.html', {"ProjectForm":form, "images":all_images})
+    # if form.is_valid():
+    #     HttpResponseRedirect('projects_today')
+    # else:
+    #     form = NewProjectForm()
+    return render(request, 'all-projects/today-project.html', { "all_images":all_images})
 
 def search_results(request):
 
@@ -26,7 +28,8 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'all-projects/search.html',{"message":message})
 
-    def new_project(request):
+@login_required(login_url='/accounts/login/')
+def new_project(request):
     
         current_user = request.user
         title = 'New project'

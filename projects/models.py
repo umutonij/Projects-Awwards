@@ -9,18 +9,23 @@ class Project(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
 
     def __str__(self):
-    	return self.title
+        return self.image
 
-    def delete_project(self):
-    	self.delete()
+    def delete_image(self):
+        self.delete()
 
-    def save_project(self):
-    	self.save()
+    def save_image(self):
+        self.save()
+
+    def update_description(self,new_description):
+        self.image_description = new_description
+        self.save()
+
 
     @classmethod
-    def all_images(cls):
-        image = cls.objects.all()
-        return images 
+    def get_image(cls, id):
+        image = cls.objects.get(id=id)
+        return image
 
     
     
