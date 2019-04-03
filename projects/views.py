@@ -45,9 +45,9 @@ def new_project(request):
 @login_required(login_url='/accounts/login/')
 def myProfile(request,id):
     user = User.objects.get(id = id)
-    # profiles = Profile.objects.get(user = user)
+    profiles = Profile.objects.get(user = user)
    
-    return render(request,'profile.html',{"user":user})
+    return render(request,'profile.html',{"profiles":profiles,"user":user})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):

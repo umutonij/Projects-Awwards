@@ -17,12 +17,14 @@
       
 <body>
     <div class = "container" style="padding-top:100px;">
+            <div class="well">
 
         <form  action="{%url 'profile'%}" method="post" enctype="multipart/form-data">
             {%csrf_token%}
 
     {% bootstrap_form form%}
     <input type="submit" class="btn btn-success btn-lg" value="Post">
+    <p><a  href="{% url 'projectsToday' %}" >Previous</a></p>
   </form>
 
   {% block scripts %}
