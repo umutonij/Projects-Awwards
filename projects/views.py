@@ -13,8 +13,8 @@ def projects_today(request):
 
 def search_results(request):
 
-    if 'image' in request.GET and request.GET["image"]:
-        search_term = request.GET.get("image")
+    if 'project' in request.GET and request.GET["project"]:
+        search_term = request.GET.get("project")
         searched_images = Project.search_by_title(search_term)
         message = f"{search_term}"
 
@@ -22,7 +22,8 @@ def search_results(request):
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'all-projects/search.html',{"message":message})
+        return render(request, 'all-projects/search.html',{"message":message})        
+
 
 
 @login_required(login_url='/accounts/login/')

@@ -9,8 +9,8 @@
     {%for images in images%}
    
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 20px;">
-        {{image.name}}
-      <img style=" margin-top: 20px; margin-bottom: 20px; width:380px; height:280px; border-radius: 30px;" src="{{images.image.url}}"  class="img-responsive" alt="Image">
+        <strong><h2 style="color:brown; text-align: center;">{{images.title}}</h2></strong>
+      <img style=" margin-top: 20px; margin-bottom: 20px; width:350px; height:250px; border-radius: 30px;" src="{{images.image.url}}"  class="img-responsive" alt="Image">
       
       {% autoescape on %}
         <strong>Description: </strong>{{images.description|safe}}
