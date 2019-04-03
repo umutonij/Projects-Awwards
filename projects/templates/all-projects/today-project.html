@@ -3,12 +3,13 @@
 {{ block.super}}
 {% load bootstrap3 %}
 
-<div class="container" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKWGhLYdpxI9f7PmIUZ8VMeKSVwsvBpaVLPJmDQjLcx4q2KyPaWQ'); background-repeat: no-repeat; background-size: cover;">
+<div class="container" style="padding-top:100px; background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKWGhLYdpxI9f7PmIUZ8VMeKSVwsvBpaVLPJmDQjLcx4q2KyPaWQ'); background-repeat: no-repeat; background-size: cover;">
   <div class="row">
  
     {%for images in images%}
    
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 20px;">
+      
         <strong><h2 style="color:brown; text-align: center;">{{images.title}}</h2></strong>
       <img style=" margin-top: 20px; margin-bottom: 20px; width:350px; height:250px; border-radius: 30px;" src="{{images.image.url}}"  class="img-responsive" alt="Image">
       

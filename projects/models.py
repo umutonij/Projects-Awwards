@@ -45,7 +45,6 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=30)
     bio = HTMLField()
     profile_pic = models.ImageField(upload_to='images/')
-    pub_date = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.first_name

@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, Http404,HttpResponseRedirect
-from .models import Project, Profile, User
+from .models import Project, Profile
+from django.contrib.auth.models import User
 from .forms import NewProjectForm, ProfileForm
 from django.contrib.auth.decorators import login_required
 
@@ -9,7 +10,7 @@ def projects_today(request):
     all_images= Project.objects.all()
     print(all_images)
     profile = Profile.objects.all()
-    return render(request, 'all-projects/today-project.html', { "images":all_images,"profile":profile})
+    return render(request, 'all-projects/today-project.html', { "images":all_images,"profiles":profile})
 
 def search_results(request):
 
@@ -47,7 +48,7 @@ def myProfile(request,id):
     user = User.objects.get(id = id)
     profiles = Profile.objects.get(user = user)
    
-    return render(request,'profile.html',{"profiles":profiles,"user":user})
+    return render(request,'profile.html',{"user":user, "profiles":profiles})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
