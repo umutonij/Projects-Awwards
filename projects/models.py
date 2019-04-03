@@ -45,6 +45,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=30)
     bio = HTMLField()
     profile_pic = models.ImageField(upload_to='images/')
+    contact_info= models.CharField(max_length=30, null=True)
 
     def __str__(self):
         return self.first_name
