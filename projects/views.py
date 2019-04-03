@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, Http404,HttpResponseRedirect
-from .models import Project
+from .models import Project, Profile
 from .forms import NewProjectForm
 from django.contrib.auth.decorators import login_required
 
@@ -9,7 +9,7 @@ def projects_today(request):
     all_images= Project.objects.all()
     print(all_images)
     profile = Profile.objects.all()
-    return render(request, 'all-projects/today-project.html', { "images":all_images})
+    return render(request, 'all-projects/today-project.html', { "images":all_images,"profile":profile})
 
 def search_results(request):
 
