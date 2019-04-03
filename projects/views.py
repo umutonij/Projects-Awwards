@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 def projects_today(request):
     all_images= Project.objects.all()
     print(all_images)
-    
+    profile = Profile.objects.all()
     return render(request, 'all-projects/today-project.html', { "images":all_images})
 
 def search_results(request):
