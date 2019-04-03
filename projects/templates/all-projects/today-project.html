@@ -3,21 +3,20 @@
 {{ block.super}}
 {% load bootstrap3 %}
 
-<div class="container" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhglDdMNHbr4p-_dzhp3GEbzsHCmfSV2Bimituq1aKVJuvPp_owQ'); background-repeat: no-repeat; background-size: cover;">
+<div class="container" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKWGhLYdpxI9f7PmIUZ8VMeKSVwsvBpaVLPJmDQjLcx4q2KyPaWQ'); background-repeat: no-repeat; background-size: cover;">
   <div class="row">
  
     {%for images in images%}
    
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 20px;">
         {{image.name}}
-      <img style=" margin-top: 20px; margin-bottom: 20px; width:400px; height:300px; border-radius: 30px;" src="{{images.image.url}}"  class="img-responsive" alt="Image">
+      <img style=" margin-top: 20px; margin-bottom: 20px; width:350px; height:250px; border-radius: 30px;" src="{{images.image.url}}"  class="img-responsive" alt="Image">
       
       {% autoescape on %}
         <strong>Description: </strong>{{images.description|safe}}
         <br>
-        <strong>Live site: </strong><a href="https://appgallery1.herokuapp.com/">https://appgallery1.herokuapp.com/</a>
+        <strong>Live site: </strong><a href="{{images.link|safe}}">{{images.link|safe}}</a>         
       {% endautoescape %}
-      
     </div>
 {%endfor%}
   </div>
