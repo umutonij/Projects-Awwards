@@ -1,31 +1,27 @@
-{%extends 'all-projects/base.html'%} 
+{%extends 'base.html'%}
+{% load bootstrap3 %} {% load staticfiles %}
 {% block content %}
 <div class="container">
 
-  <div class="row">
-    {% if images%}
-      <h2>Found {{ images|length }} of searched term {{message}}</h2>
+  <div class="mark" style="color:rgb(53, 127, 212);font-family: monospace;">
+    {% if searched%}
+      <h2>Found {{ searched|length }} project of searched term {{message}}</h2>
     {% else %}
-      <h2> Found 0 images for the search term {{message}}</h2>
+      <h2> Found 0 project for the search term {{message}}</h2>
     {% endif %}
 
   </div>
 
   <div class="row">
 
-  {% if images %}
-    {% for image in images %}
-      <div class="col-sm-6 col-md-3">
-          <h2 style="color:brown;">{{image.title}}</h2>
-          <img src="{{image.image.url}}"  class="img-responsive" alt="">
-          <strong>Name:</strong> {{image.name}}
-          <br>
-          <strong>User:</strong>{{image.user}}
-          <br>
-          <strong>Caption:</strong>{{image.caption}}
-      </div>
+  {% if searched %}
+    {% for image in searched %}
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <img src="{{image.image.url}}" alt="Image" width='200' length='200'>
+    </div>
     {% endfor %}
   {% endif %}
   </div>
 </div>
 {% endblock %}
+© 2019 GitHub

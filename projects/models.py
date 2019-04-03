@@ -21,16 +21,20 @@ class Project(models.Model):
     def update_description(self,new_description):
         self.image_description = new_description
         self.save()
-
+    @classmethod
+    def all_images(cls):
+        images = cls.objects.all()
+        return images 
 
     @classmethod
     def get_image(cls, id):
         image = cls.objects.get(id=id)
         return image
 
-    
+    def __str__(self):
+    	return self.user.username
     
     @classmethod
     def search_by_title(cls,search_term):
         projects = cls.objects.filter(name__icontains=search_term)
-        return project
+        return projects
