@@ -42,7 +42,7 @@ def new_project(request):
         else:
             form = NewProjectForm()
         return render(request, 'new_project.html', {"form": form,"current_user":current_user,"title":title})
-        
+
 @login_required(login_url='/accounts/login/')
 def profile(request):
     current_user = request.user
@@ -53,8 +53,8 @@ def profile(request):
             profile.user = current_user
             profile.save()
 
-            return redirect('index')
+            return redirect('projectsToday')
 
     else:
         form = ProfileForm()
-    return render(request, 'pro_form.html', {"form": form})
+    return render(request, 'profile_form.html', {"form": form})
