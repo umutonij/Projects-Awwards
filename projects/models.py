@@ -60,4 +60,18 @@ class Profile(models.Model):
     def get_profiles(cls):
         profiles = cls.objects.all()
         return profiles
-  
+
+class Rating(models.Model):
+    rating= models.CharField(max_length=30, null=True)
+    user = models.ForeignKey(User, null= True)
+    project = models.ForeignKey(Project, null= True,related_name='rating')
+
+    def __str__(self):
+        return self.rating
+
+
+    def delete_rating(self):
+        self.delete()
+
+    def save_rating(self):
+        self.save()
