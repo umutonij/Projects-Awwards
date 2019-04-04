@@ -13,15 +13,9 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
-    def delete_image(self):
-        self.delete()
-
     def save_image(self):
         self.save()
 
-    def update_description(self,new_description):
-        self.image_description = new_description
-        self.save()
     @classmethod
     def all_images(cls):
         images = cls.objects.all()
@@ -53,9 +47,6 @@ class Profile(models.Model):
     def save_profile(self):
         self.save()
 
-    def delete_profile(self):
-        self.delete()
-
     @classmethod
     def get_profiles(cls):
         profiles = cls.objects.all()
@@ -63,8 +54,7 @@ class Profile(models.Model):
 
 class Rating(models.Model):
     rating= models.CharField(max_length=30, null=True)
-    user = models.ForeignKey(User, null= True)
-    project = models.ForeignKey(Project, null= True,related_name='rating')
+    
 
     def __str__(self):
         return self.rating

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .models import Project, Profile
 from django.contrib.auth.models import User
-from .forms import NewProjectForm, ProfileForm
+from .forms import NewProjectForm, ProfileForm, RatingForm
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/accounts/login/')
@@ -10,7 +10,8 @@ def projects_today(request):
     all_images= Project.objects.all()
     print(all_images)
     profile = Profile.objects.all()
-    return render(request, 'all-projects/today-project.html', { "images":all_images,"profiles":profile})
+    form = RatingForm()
+    return render(request, 'all-projects/today-project.html', { "images":all_images,"profiles":profile,  "form":form})
 
 def search_results(request):
 
@@ -65,3 +66,21 @@ def profile(request):
     else:
         form = ProfileForm()
     return render(request, 'profile_form.html', {"form": form})
+
+@login_required(login_url='/accounts/login/')
+def rating(request,id):
+    current_user = request.user
+    users = User.objects.get(pk=current_user.id)
+    projects = Project.objects.get(pk=id)
+    print(users)
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+
+        if form.is_valid():
+            rating = form.save(commit=False)
+            rating.user = users
+            rating.project=projects
+            rating.save()
+        return redirect('projectsToday')
+    else:
+        return redirect('projectsToday')
