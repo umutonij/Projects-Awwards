@@ -25,7 +25,7 @@ This is a simple web app of the Project website. A user can create an account an
 * bootsrap
 
 
-Run the following command on the terminal: git clone 
+Run the following command on the terminal: git clone https://awwards7.herokuapp.com/
 
 ## Behavior Driven Development (BDD)
 
