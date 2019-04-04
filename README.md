@@ -27,6 +27,9 @@ This is a simple web app of the Project website. A user can create an account an
 
 Run the following command on the terminal: git clone 
 
+## Behavior Driven Development (BDD)
+
+The Award app is a web application that helps users to view different projects photos with their link. Each project has a caption and a name. if they want they can search different project based on the title, projects will be displayed based on their titles. before a user can use the application, he/she must sign in. if thet dont have an account, they must create the account so that they may get to the sign in form. after sign in they will get all the access of the app and view different projects.
 
 ## Technologies used
 
